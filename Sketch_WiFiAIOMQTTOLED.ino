@@ -10,15 +10,32 @@
   please support Adafruit and open-source hardware by purchasing products from Adafruit!
  ****************************************************/
 
-#include <Wire.h>					// Library for communicating with I2C / TWI devices
-#include <ESP8266WiFi.h>			// The Wi-Fi library for ESP8266 modules
-#include <DNSServer.h>				// WiFiManager Local DNS Server used for redirecting all requests to the configuration portal
-#include <ESP8266WebServer.h>		// WiFiManager Local WebServer used to serve the configuration portal
-#include <WiFiManager.h>			// WiFiManager Configuration Magic (https://github.com/tzapu/WiFiManager)
-#include "Adafruit_MQTT.h"			// Arduino library for MQTT support, including access to Adafruit IO
-#include "Adafruit_MQTT_Client.h"	// Arduino library for MQTT support, including access to Adafruit IO
-#include <Adafruit_GFX.h>			// Core graphics library for all Adafruit displays
-#include <Adafruit_SSD1306.h>		// Core library for Adafruit Monochrome OLEDs based on SSD1306 drivers
+// Library for communicating with I2C / TWI devices
+#include <Wire.h>
+
+// The Wi-Fi library for ESP8266 modules
+#include <ESP8266WiFi.h>
+
+// WiFiManager Local DNS Server used for redirecting all requests to the configuration portal
+#include <DNSServer.h>
+
+// WiFiManager Local WebServer used to serve the configuration portal
+#include <ESP8266WebServer.h>
+
+// WiFiManager Configuration Magic (https://github.com/tzapu/WiFiManager)
+#include <WiFiManager.h>
+
+// Arduino library for MQTT support, including access to Adafruit IO
+#include "Adafruit_MQTT.h"
+
+// Arduino library for MQTT support, including access to Adafruit IO
+#include "Adafruit_MQTT_Client.h"
+
+// Core graphics library for all Adafruit displays
+#include <Adafruit_GFX.h>
+
+// Core library for Adafruit Monochrome OLEDs based on SSD1306 drivers
+#include <Adafruit_SSD1306.h>
 
 //Define our OLED size
 #define PX_WIDTH 128
@@ -193,8 +210,6 @@ void loop() {
       
       // Scroll our message ascross the display
       maxStringLen = productStr.length() * 10; // No. of characters x 10px character width (TextSize 1=5px, 2=10px etc.)
-      //Serial.print( "Scroll length: " );
-      //Serial.println( maxStringLen + PX_WIDTH );
       while( abs( x ) < ( maxStringLen + PX_WIDTH ) ) {
         messageFinished = true;
         displayStrings( prefixStr, productStr, 0, x );        
