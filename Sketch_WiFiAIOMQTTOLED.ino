@@ -255,6 +255,7 @@ void MQTT_connect() {
   Serial.println( "MQTT Connected!" );
 }
 
+// Display multiple strings and optionally pause
 void displayStrings( String staticString, String scrollingString, int pause, int positionX ) {
   display.clearDisplay();
   
